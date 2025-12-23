@@ -1,7 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, CheckCircle, Smartphone, Mail, Facebook, Video, ArrowRight, Printer, Code, PenTool, Briefcase, Award, ExternalLink, MapPin, Users, Calendar, Clock, DollarSign, HelpCircle, ChevronDown, ChevronUp, Star } from 'lucide-react';
+import { Menu, X, CheckCircle, Smartphone, Mail, Facebook, Video, ArrowRight, Printer, Code, PenTool, Briefcase, Award, ExternalLink, MapPin, Users, Calendar, Clock, DollarSign, HelpCircle, ChevronDown, ChevronUp, Star, Youtube } from 'lucide-react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+
+// --- Assets ---
+const LOGO_URL = "https://i.postimg.cc/sDy1sSzq/logo-AM.jpg";
+const IMAGES = {
+  hero: "https://i.postimg.cc/DyFmnsF2/2025-12-23-at-9-06-51-AM.jpg",
+  about_hero: "https://i.postimg.cc/xTR8CCjB/9-06-51-AM.jpg",
+  mission_1: "https://i.postimg.cc/sDcxXXfq/Whats-App-Image-2025-12-23-at-9-06-43-AM.jpg",
+  mission_2: "https://i.postimg.cc/Wbnz33bv/Whats-App-Image-2025-12-23-at-9-06-51-AM.jpg",
+  course_office: "https://i.postimg.cc/Wbnz33bv/Whats-App-Image-2025-12-23-at-9-06-51-AM.jpg",
+  course_design: "https://i.postimg.cc/VLRv66Ls/Whats-App-Image-2025-12-23-at-9-06-52-AM.jpg",
+  course_programming: "https://i.postimg.cc/bNTrJJNr/Whats-App-Image-2025-12-23-at-9-06-53-AM.jpg",
+  course_printing: "https://i.postimg.cc/RVRhFFVW/Whats-App-Image-2025-12-23-at-9-06-55-AM.jpg",
+  gallery_1: "https://i.postimg.cc/DyFmnsF2/2025-12-23-at-9-06-51-AM.jpg",
+  gallery_2: "https://i.postimg.cc/xTR8CCjB/9-06-51-AM.jpg",
+  gallery_3: "https://i.postimg.cc/sDcxXXfq/Whats-App-Image-2025-12-23-at-9-06-43-AM.jpg",
+  gallery_4: "https://i.postimg.cc/VLRv66Ls/Whats-App-Image-2025-12-23-at-9-06-52-AM.jpg"
+};
 
 // --- Utilities ---
 
@@ -45,10 +62,12 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-md py-3' : 'bg-white/50 backdrop-blur-sm py-5'}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-md py-3' : 'bg-white/50 backdrop-blur-sm py-4'}`}>
         <div className="container mx-auto px-6 flex justify-between items-center">
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl transition-colors bg-accent-teal text-white shadow-lg`}>S</div>
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="w-12 h-12 rounded-lg overflow-hidden shadow-lg border-2 border-accent-teal/20 transition-transform group-hover:scale-105">
+              <img src={LOGO_URL} alt="Skills Matters Logo" className="w-full h-full object-cover" />
+            </div>
             <div className="flex flex-col">
               <span className={`font-heading font-bold text-lg tracking-wide text-deep-blue`}>SKILLS MATTERS</span>
               <span className="text-accent-teal text-xs tracking-widest uppercase group-hover:text-accent-teal-dark transition-colors">Institute</span>
@@ -111,7 +130,10 @@ const Navigation = () => {
                 })}
               </ul>
 
-              <div className="mt-auto border-t border-gray-100 pt-8">
+              <div className="mt-auto border-t border-gray-100 pt-8 flex flex-col items-center gap-4">
+                 <a href="https://youtube.com/@skillmattersinstitute?si=cgk3sXjFHu9Cl5UH" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-red-600 font-bold hover:scale-105 transition-transform">
+                   <Youtube size={20} /> Follow us on YouTube
+                 </a>
                  <p className="text-accent-teal italic text-sm text-center">"Seul Excellence fait la difference"</p>
               </div>
             </motion.div>
@@ -172,16 +194,16 @@ const HomePage = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="lg:w-1/2 relative"
             >
-              <div className="relative z-10 rounded-[2rem] overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
+              <div className="relative z-10 rounded-[2rem] overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500 aspect-video lg:aspect-square">
                 <img 
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" 
+                  src={IMAGES.hero} 
                   alt="Students working together" 
-                  className="w-full h-auto object-cover"
+                  className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-deep-blue/60 to-transparent"></div>
                 <div className="absolute bottom-6 left-6 text-white">
                   <p className="font-bold text-lg">Practical Learning</p>
-                  <p className="text-sm opacity-80">Real-world projects</p>
+                  <p className="text-sm opacity-80">Real-world projects in Cameroon</p>
                 </div>
               </div>
               <div className="absolute -inset-4 bg-accent-teal/20 rounded-[2.5rem] -z-10 rotate-[-3deg]"></div>
@@ -190,7 +212,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Quick Stats / Why Choose Us Snippet */}
+      {/* Quick Stats */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -199,21 +221,21 @@ const HomePage = () => {
                  <Users size={32} />
                </div>
                <h3 className="text-xl font-bold text-deep-blue mb-2">Expert Instructors</h3>
-               <p className="text-slate-500">Learn from industry professionals with years of hands-on experience.</p>
+               <p className="text-slate-500">Learn from local industry professionals with years of hands-on experience.</p>
              </div>
              <div className="p-8 bg-slate-50 rounded-2xl border border-slate-100 text-center hover:shadow-lg transition-shadow">
                <div className="w-16 h-16 mx-auto bg-accent-teal/10 rounded-full flex items-center justify-center text-accent-teal mb-4">
                  <Award size={32} />
                </div>
                <h3 className="text-xl font-bold text-deep-blue mb-2">Recognized Certs</h3>
-               <p className="text-slate-500">Gain credentials that are respected and valued by employers.</p>
+               <p className="text-slate-500">Gain credentials that are respected and valued by employers nationwide.</p>
              </div>
              <div className="p-8 bg-slate-50 rounded-2xl border border-slate-100 text-center hover:shadow-lg transition-shadow">
                <div className="w-16 h-16 mx-auto bg-accent-teal/10 rounded-full flex items-center justify-center text-accent-teal mb-4">
                  <Clock size={32} />
                </div>
                <h3 className="text-xl font-bold text-deep-blue mb-2">Flexible Learning</h3>
-               <p className="text-slate-500">Schedule your classes to fit around your work or personal life.</p>
+               <p className="text-slate-500">Schedule your classes to fit around your professional or student life.</p>
              </div>
           </div>
         </div>
@@ -232,7 +254,7 @@ const HomePage = () => {
                   <Star fill="currentColor" size={16} />
                   <Star fill="currentColor" size={16} />
                 </div>
-                <p className="italic text-gray-300 mb-6">"The Graphic Design course completely changed my career path. I'm now working as a freelance designer with clients globally."</p>
+                <p className="italic text-gray-300 mb-6">"The Graphic Design course completely changed my career path. I'm now working as a freelance designer in Douala."</p>
                 <div className="flex items-center justify-center gap-3">
                   <div className="w-10 h-10 bg-accent-teal rounded-full flex items-center justify-center font-bold">AT</div>
                   <div className="text-left">
@@ -276,27 +298,27 @@ const HomePage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
              <div className="group cursor-pointer">
                <div className="rounded-xl overflow-hidden mb-4 shadow-sm group-hover:shadow-md transition-all">
-                 <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=500&q=60" alt="Workshop" className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"/>
+                 <img src={IMAGES.gallery_4} alt="Workshop" className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"/>
                </div>
                <p className="text-xs text-accent-teal font-bold mb-2">OCT 12, 2023</p>
                <h3 className="font-bold text-lg text-deep-blue mb-2 group-hover:text-accent-teal transition-colors">New Digital Marketing Workshop</h3>
-               <p className="text-slate-500 text-sm line-clamp-2">Join us for a 2-day intensive workshop on social media strategies...</p>
+               <p className="text-slate-500 text-sm line-clamp-2">Join us for a 2-day intensive workshop on social media strategies in Yaoundé.</p>
              </div>
              <div className="group cursor-pointer">
                <div className="rounded-xl overflow-hidden mb-4 shadow-sm group-hover:shadow-md transition-all">
-                 <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=500&q=60" alt="Students" className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"/>
+                 <img src={IMAGES.mission_2} alt="Students" className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"/>
                </div>
                <p className="text-xs text-accent-teal font-bold mb-2">SEP 28, 2023</p>
                <h3 className="font-bold text-lg text-deep-blue mb-2 group-hover:text-accent-teal transition-colors">Welcoming the new cohort</h3>
-               <p className="text-slate-500 text-sm line-clamp-2">We are excited to welcome over 50 new students to our campus this semester...</p>
+               <p className="text-slate-500 text-sm line-clamp-2">We are excited to welcome over 50 new students to our campus this semester.</p>
              </div>
              <div className="group cursor-pointer">
                <div className="rounded-xl overflow-hidden mb-4 shadow-sm group-hover:shadow-md transition-all">
-                 <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=500&q=60" alt="Meeting" className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"/>
+                 <img src={IMAGES.mission_1} alt="Meeting" className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"/>
                </div>
                <p className="text-xs text-accent-teal font-bold mb-2">AUG 15, 2023</p>
                <h3 className="font-bold text-lg text-deep-blue mb-2 group-hover:text-accent-teal transition-colors">Partnership with Tech Firms</h3>
-               <p className="text-slate-500 text-sm line-clamp-2">Skills Matters Institute partners with local tech firms to provide internship opportunities...</p>
+               <p className="text-slate-500 text-sm line-clamp-2">Skills Matters Institute partners with local tech firms to provide internship opportunities.</p>
              </div>
           </div>
         </div>
@@ -311,7 +333,9 @@ const AboutPage = () => {
     <div className="pt-20">
       {/* About Hero */}
       <section className="bg-deep-blue text-white py-20 relative overflow-hidden">
-         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-10"></div>
+         <div className="absolute inset-0 opacity-20">
+           <img src={IMAGES.about_hero} alt="Background" className="w-full h-full object-cover" />
+         </div>
          <div className="container mx-auto px-6 relative z-10 text-center">
             <h1 className="text-4xl md:text-6xl font-heading mb-6">About <span className="text-accent-teal">Us</span></h1>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">Discover the story behind Skills Matters Institute and our commitment to excellence in education.</p>
@@ -326,19 +350,19 @@ const AboutPage = () => {
                <h2 className="text-3xl font-heading font-bold text-deep-blue mb-6">Our Mission & Vision</h2>
                <div className="space-y-6">
                  <p className="text-slate-600 leading-relaxed">
-                   Founded with the belief that practical skills are the currency of the future, Skills Matters Institute has grown into a premier destination for vocational and technical training.
+                   Founded with the belief that practical skills are the currency of the future, Skills Matters Institute has grown into a premier destination for vocational and technical training in Cameroon.
                  </p>
                  <p className="text-slate-600 leading-relaxed">
                    Our mission is to bridge the gap between theoretical education and the practical demands of the modern workforce. We strive to empower every student with the tools they need to succeed, innovate, and lead in their respective fields.
                  </p>
                  <blockquote className="border-l-4 border-accent-teal pl-6 italic text-slate-700 my-8">
-                   "Seul Excellence fait la difference" - Only Excellence Makes the Difference. This motto drives every curriculum decision we make.
+                   "Seul Excellence fait la difference" - Only Excellence Makes the Difference.
                  </blockquote>
                </div>
             </div>
             <div className="lg:w-1/2 grid grid-cols-2 gap-4">
-               <img src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&w=400&q=80" alt="Team" className="rounded-2xl shadow-lg mt-8"/>
-               <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=400&q=80" alt="Classroom" className="rounded-2xl shadow-lg"/>
+               <img src={IMAGES.mission_1} alt="Team" className="rounded-2xl shadow-lg mt-8 aspect-square object-cover"/>
+               <img src={IMAGES.mission_2} alt="Classroom" className="rounded-2xl shadow-lg aspect-square object-cover"/>
             </div>
           </div>
         </div>
@@ -354,12 +378,12 @@ const AboutPage = () => {
            
            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
-                { name: "Matieyendou Lalle", role: "Director", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" },
-                { name: "Dr. Solange Biyong", role: "Head of Academics", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" },
-                { name: "Eng. Cedric Ngannou", role: "Technical Lead", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80" }
+                { name: "Matieyendou Lalle", role: "Director", img: IMAGES.gallery_1 },
+                { name: "Dr. Solange Biyong", role: "Head of Academics", img: IMAGES.gallery_2 },
+                { name: "Eng. Cedric Ngannou", role: "Technical Lead", img: IMAGES.gallery_3 }
               ].map((member, i) => (
                 <div key={i} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow text-center">
-                   <div className="w-32 h-32 mx-auto rounded-full overflow-hidden mb-6 border-4 border-slate-50">
+                   <div className="w-32 h-32 mx-auto rounded-full overflow-hidden mb-6 border-4 border-slate-50 shadow-inner">
                      <img src={member.img} alt={member.name} className="w-full h-full object-cover"/>
                    </div>
                    <h3 className="font-bold text-xl text-deep-blue">{member.name}</h3>
@@ -376,16 +400,16 @@ const AboutPage = () => {
            <h2 className="text-3xl font-heading font-bold text-deep-blue mb-12">Campus <span className="text-accent-teal">Life</span></h2>
            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
               <div className="col-span-2 row-span-2 rounded-2xl overflow-hidden shadow-md">
-                 <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Students"/>
+                 <img src={IMAGES.gallery_1} className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Students"/>
               </div>
               <div className="rounded-2xl overflow-hidden shadow-md">
-                 <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=400&q=80" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Meeting"/>
+                 <img src={IMAGES.gallery_2} className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Meeting"/>
               </div>
               <div className="rounded-2xl overflow-hidden shadow-md">
-                 <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=400&q=80" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Computer Lab"/>
+                 <img src={IMAGES.gallery_3} className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Lab"/>
               </div>
               <div className="col-span-2 rounded-2xl overflow-hidden shadow-md">
-                 <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Collaboration"/>
+                 <img src={IMAGES.gallery_4} className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Collaboration"/>
               </div>
            </div>
         </div>
@@ -401,36 +425,36 @@ const CoursesPage = () => {
       id: "office",
       title: "Office Management",
       desc: "Master administrative skills, organizational efficiency, and modern office software suites.",
-      longDesc: "This comprehensive course is designed to equip you with the essential skills needed to run a modern office efficiently. From mastering Microsoft Office Suite (Word, Excel, PowerPoint) to understanding office etiquette and digital communication tools, you will graduate ready to take on administrative roles.",
-      outcomes: ["Proficiency in MS Office", "Business Communication", "Record Keeping & Filing", "Time Management"],
-      image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80",
+      longDesc: "Equip yourself with the essential skills needed to run a modern office efficiently. Master MS Office Suite, office etiquette, and digital communication tools.",
+      outcomes: ["Proficiency in MS Office", "Business Communication", "Record Keeping", "Time Management"],
+      image: IMAGES.course_office,
       icon: <Briefcase size={24}/>
     },
     {
       id: "design",
       title: "Graphic Design",
       desc: "Create stunning visuals using industry-standard tools like Photoshop, Illustrator, and CorelDraw.",
-      longDesc: "Unleash your creativity with our Graphic Design program. We cover the fundamental principles of design, color theory, and typography, alongside intensive practical training in Adobe Photoshop, Illustrator, and CorelDraw. Perfect for aspiring freelancers or agency designers.",
-      outcomes: ["Brand Identity Design", "Photo Editing & Manipulation", "Vector Illustration", "Print Layout Design"],
-      image: "https://th.bing.com/th/id/OIP.rgmJZT5F2rJWNJT9xUVzqQHaE8?w=236&h=180&c=7&r=0&o=7&cb=ucfimg2&pid=1.7&rm=3&ucfimg=1",
+      longDesc: "Unleash your creativity. Cover design principles, color theory, and typography with intensive practical training in Photoshop, Illustrator, and CorelDraw.",
+      outcomes: ["Brand Identity Design", "Photo Manipulation", "Vector Illustration", "Print Layout"],
+      image: IMAGES.course_design,
       icon: <PenTool size={24}/>
     },
     {
       id: "programming",
       title: "Programming",
       desc: "Build the future with code. Learn software development, web technologies, and logic.",
-      longDesc: "Dive into the world of software development. Our curriculum starts with the basics of programming logic and moves into web development (HTML, CSS, JavaScript) and backend fundamentals. You'll build real-world projects to create a strong portfolio.",
-      outcomes: ["Web Development (Frontend)", "Programming Logic", "Database Basics", "Git & Version Control"],
-      image: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?auto=format&fit=crop&w=800&q=80",
+      longDesc: "Dive into software development. Learn programming logic, web development (HTML, CSS, JS), and backend fundamentals with real-world projects.",
+      outcomes: ["Web Development", "Programming Logic", "Database Basics", "Git Control"],
+      image: IMAGES.course_programming,
       icon: <Code size={24}/>
     },
     {
       id: "printing",
       title: "Printing & Design",
       desc: "Practical training in T-Shirt printing, Books printing, and Photo printing technologies.",
-      longDesc: "A unique hands-on course focusing on the technical side of the print industry. Learn how to operate professional printing machinery, understand paper types, color calibration, and the specific techniques for screen printing on textiles and large format printing.",
-      outcomes: ["Screen Printing Techniques", "Large Format Operations", "Color Management", "Print Production Workflow"],
-      image: "https://images.unsplash.com/photo-1562564055-71e051d33c19?auto=format&fit=crop&w=800&q=80",
+      longDesc: "Hands-on course on print industry technicalities. Operate professional machinery, understand paper types, color calibration, and textile printing.",
+      outcomes: ["Screen Printing", "Large Format Operations", "Color Management", "Production Workflow"],
+      image: IMAGES.course_printing,
       icon: <Printer size={24}/>
     }
   ];
@@ -449,8 +473,8 @@ const CoursesPage = () => {
             {courseDetails.map((course, index) => (
               <div key={course.id} className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 items-center`}>
                 <div className="lg:w-1/2">
-                  <div className="rounded-2xl overflow-hidden shadow-2xl relative">
-                     <img src={course.image} alt={course.title} className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"/>
+                  <div className="rounded-2xl overflow-hidden shadow-2xl relative aspect-[4/3]">
+                     <img src={course.image} alt={course.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"/>
                      <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md p-3 rounded-xl text-accent-teal shadow-lg">
                        {course.icon}
                      </div>
@@ -495,7 +519,6 @@ const ServicesPage = () => {
           </div>
        </section>
 
-       {/* Service Cards */}
        <section className="py-24 bg-white">
           <div className="container mx-auto px-6">
              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
@@ -504,12 +527,7 @@ const ServicesPage = () => {
                      <Users size={32} />
                    </div>
                    <h3 className="text-2xl font-bold text-deep-blue mb-4">Corporate Training</h3>
-                   <p className="text-slate-600 mb-6">We offer tailored training sessions for companies looking to upskill their staff in IT, administration, or design.</p>
-                   <ul className="space-y-2 text-sm text-slate-500 mb-8">
-                     <li>• On-site or Campus training</li>
-                     <li>• Custom curriculum</li>
-                     <li>• Progress reporting</li>
-                   </ul>
+                   <p className="text-slate-600 mb-6">Tailored sessions for companies looking to upskill their staff in IT, administration, or design.</p>
                 </div>
                 
                 <div className="p-8 border border-slate-100 rounded-2xl shadow-lg hover:translate-y-[-5px] transition-transform duration-300 bg-white">
@@ -517,12 +535,7 @@ const ServicesPage = () => {
                      <Printer size={32} />
                    </div>
                    <h3 className="text-2xl font-bold text-deep-blue mb-4">Print Production</h3>
-                   <p className="text-slate-600 mb-6">From T-shirts to large banners, our print shop delivers high-quality materials for your brand.</p>
-                   <ul className="space-y-2 text-sm text-slate-500 mb-8">
-                     <li>• Textile/Screen Printing</li>
-                     <li>• Digital Printing</li>
-                     <li>• Book Binding</li>
-                   </ul>
+                   <p className="text-slate-600 mb-6">High-quality printing for T-shirts, books, banners, and marketing materials.</p>
                 </div>
 
                 <div className="p-8 border border-slate-100 rounded-2xl shadow-lg hover:translate-y-[-5px] transition-transform duration-300 bg-white">
@@ -530,31 +543,7 @@ const ServicesPage = () => {
                      <PenTool size={32} />
                    </div>
                    <h3 className="text-2xl font-bold text-deep-blue mb-4">Design Consultancy</h3>
-                   <p className="text-slate-600 mb-6">Let our expert designers help you create a visual identity that stands out.</p>
-                   <ul className="space-y-2 text-sm text-slate-500 mb-8">
-                     <li>• Logo & Branding</li>
-                     <li>• Marketing Materials</li>
-                     <li>• UI/UX Design</li>
-                   </ul>
-                </div>
-             </div>
-
-             {/* Process Section */}
-             <div className="bg-slate-50 rounded-3xl p-12">
-                <h2 className="text-3xl font-heading font-bold text-deep-blue text-center mb-12">Our <span className="text-accent-teal">Process</span></h2>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                   {[
-                     { step: "01", title: "Consultation", desc: "We meet to understand your needs and goals." },
-                     { step: "02", title: "Proposal", desc: "We provide a detailed plan and quote." },
-                     { step: "03", title: "Execution", desc: "Our team gets to work delivering quality results." },
-                     { step: "04", title: "Delivery", desc: "Final review and handover of your project." }
-                   ].map((item) => (
-                     <div key={item.step} className="relative">
-                        <span className="text-6xl font-bold text-slate-200 absolute -top-8 -left-4 -z-10">{item.step}</span>
-                        <h3 className="text-xl font-bold text-deep-blue mb-2">{item.title}</h3>
-                        <p className="text-slate-500 text-sm">{item.desc}</p>
-                     </div>
-                   ))}
+                   <p className="text-slate-600 mb-6">Create a visual identity that stands out with our branding and UI/UX expertise.</p>
                 </div>
              </div>
           </div>
@@ -579,22 +568,20 @@ const CertificatesPage = () => {
         <div className="container mx-auto px-6 flex flex-col items-center">
            <div className="max-w-4xl bg-white border border-slate-200 shadow-2xl p-4 md:p-8 rounded-xl relative mb-12 transform rotate-1 hover:rotate-0 transition-transform duration-500">
               <div className="border-4 border-double border-slate-100 p-8 md:p-12 text-center h-full flex flex-col items-center justify-center">
-                 <div className="w-20 h-20 bg-accent-teal/10 rounded-full flex items-center justify-center mb-6">
-                    <img src="https://via.placeholder.com/50" alt="Logo" className="opacity-50"/> 
-                    {/* Placeholder for logo */}
-                    <span className="font-heading font-bold text-accent-teal text-2xl absolute">SM</span>
+                 <div className="w-24 h-24 mb-6 relative">
+                    <img src={LOGO_URL} alt="Logo" className="w-full h-full object-cover rounded-full shadow-md"/>
                  </div>
                  <h2 className="font-heading text-4xl text-deep-blue mb-2">Certificate of Completion</h2>
                  <p className="text-slate-500 italic mb-8">This is to certify that</p>
-                 <p className="text-3xl font-cursive text-accent-teal mb-2 font-bold border-b-2 border-slate-100 pb-2 px-12">Yannick Ngu</p>
-                 <p className="text-slate-500 mt-6 mb-8 max-w-lg">Has successfully completed the prescribed course in <strong>Graphic Design</strong> demonstrating proficiency and excellence.</p>
+                 <p className="text-3xl font-cursive text-accent-teal mb-2 font-bold border-b-2 border-slate-100 pb-2 px-12">Maitre Lalle Matieyendou</p>
+                 <p className="text-slate-500 mt-6 mb-8 max-w-lg">Has successfully completed the prescribed course in <strong>Office Management & IT Excellence</strong> demonstrating proficiency and dedication.</p>
                  <div className="flex justify-between w-full max-w-md mt-8 pt-8 border-t border-slate-100">
                     <div className="text-center">
-                       <div className="h-12 w-32 mb-2 bg-slate-50"></div> 
+                       <div className="h-12 w-32 mb-2 border-b border-slate-300"></div> 
                        <p className="text-xs text-slate-400 uppercase tracking-widest">Director Signature</p>
                     </div>
                     <div className="text-center">
-                       <div className="w-16 h-16 bg-accent-gold/20 rounded-full mx-auto mb-2 flex items-center justify-center">
+                       <div className="w-16 h-16 bg-accent-teal/10 rounded-full mx-auto mb-2 flex items-center justify-center">
                          <Award className="text-accent-teal" />
                        </div>
                     </div>
@@ -604,14 +591,6 @@ const CertificatesPage = () => {
                     </div>
                  </div>
               </div>
-           </div>
-
-           <div className="max-w-2xl text-center">
-              <h3 className="text-2xl font-bold text-deep-blue mb-4">Value of our Certificates</h3>
-              <p className="text-slate-600 mb-8">
-                Our certificates are recognized by local businesses and partners. They serve as a testament to the practical hours and project work you have completed during your time at Skills Matters Institute.
-              </p>
-              <Link to="/courses" className="text-accent-teal font-bold hover:underline">Start your journey today &rarr;</Link>
            </div>
         </div>
       </section>
@@ -639,14 +618,10 @@ const ContactPage = () => {
       alert("Please fill in your name and message.");
       return;
     }
-
-    const whatsappMessage = `*Hello Skills Matters Institute!*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Message:* ${message}`;
-    const whatsappUrl = `https://wa.me/233537110537?text=${whatsappMessage}`;
-    
+    const whatsappMessage = `*Hello Skills Matters!*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Message:* ${message}`;
+    const whatsappUrl = `https://wa.me/237699000000?text=${whatsappMessage}`; // Generic CM number example
     window.open(whatsappUrl, '_blank');
   };
-
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <div className="pt-20">
@@ -658,65 +633,54 @@ const ContactPage = () => {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            
-            {/* Info & FAQ */}
             <div>
               <h2 className="text-2xl font-bold text-deep-blue mb-8">Get In Touch</h2>
               <div className="space-y-6 mb-12">
-                <a href="tel:+2330537110537" className="flex items-center gap-4 p-4 rounded-xl border border-slate-100 hover:border-accent-teal hover:bg-slate-50 transition-all">
+                <div className="flex items-center gap-4 p-4 rounded-xl border border-slate-100">
                   <div className="w-12 h-12 rounded-full bg-accent-teal/10 flex items-center justify-center text-accent-teal">
                     <Smartphone size={24} />
                   </div>
                   <div>
                     <h4 className="text-slate-500 text-xs font-bold uppercase tracking-wider">Phone</h4>
-                    <p className="text-deep-blue font-semibold">+233 (0) 537 110 537</p>
+                    <p className="text-deep-blue font-semibold">+237 6XX XXX XXX</p>
                   </div>
-                </a>
-                <a href="mailto:matieyendoulalle57@gmail.com" className="flex items-center gap-4 p-4 rounded-xl border border-slate-100 hover:border-accent-teal hover:bg-slate-50 transition-all">
+                </div>
+                <div className="flex items-center gap-4 p-4 rounded-xl border border-slate-100">
                   <div className="w-12 h-12 rounded-full bg-accent-teal/10 flex items-center justify-center text-accent-teal">
                     <Mail size={24} />
                   </div>
                   <div>
                     <h4 className="text-slate-500 text-xs font-bold uppercase tracking-wider">Email</h4>
-                    <p className="text-deep-blue font-semibold">matieyendoulalle57@gmail.com</p>
+                    <p className="text-deep-blue font-semibold">contact@skillmatters.cm</p>
                   </div>
-                </a>
-                 <div className="flex items-center gap-4 p-4 rounded-xl border border-slate-100 hover:border-accent-teal hover:bg-slate-50 transition-all">
+                </div>
+                <div className="flex items-center gap-4 p-4 rounded-xl border border-slate-100">
                   <div className="w-12 h-12 rounded-full bg-accent-teal/10 flex items-center justify-center text-accent-teal">
                     <MapPin size={24} />
                   </div>
                   <div>
                     <h4 className="text-slate-500 text-xs font-bold uppercase tracking-wider">Location</h4>
-                    <p className="text-deep-blue font-semibold">Skills Matters Campus, Ghana</p>
+                    <p className="text-deep-blue font-semibold">Yaoundé, Cameroon</p>
                   </div>
                 </div>
               </div>
 
-              <h2 className="text-2xl font-bold text-deep-blue mb-6">FAQ</h2>
-              <div className="space-y-4">
-                 {[
-                   { q: "How do I enroll?", a: "You can enroll by visiting our campus or contacting us via the form on this page. We will guide you through the registration process." },
-                   { q: "Are the certificates recognized?", a: "Yes, our certificates are recognized by industry partners and serve as a valid proof of your practical skills." },
-                   { q: "Do you offer part-time classes?", a: "Yes, we offer flexible schedules including evening and weekend classes to accommodate working professionals." }
-                 ].map((item, i) => (
-                   <div key={i} className="border border-slate-200 rounded-lg overflow-hidden">
-                      <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full flex justify-between items-center p-4 text-left bg-slate-50 hover:bg-slate-100 font-medium text-deep-blue">
-                        {item.q}
-                        {openFaq === i ? <ChevronUp size={16}/> : <ChevronDown size={16}/>}
-                      </button>
-                      {openFaq === i && (
-                        <div className="p-4 text-sm text-slate-600 bg-white border-t border-slate-200">
-                          {item.a}
-                        </div>
-                      )}
-                   </div>
-                 ))}
+              {/* Google Map Iframe */}
+              <div className="rounded-2xl overflow-hidden shadow-lg h-64 md:h-80 border-2 border-slate-100">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127357.51130663185!2d11.431268677465825!3d3.844111351144074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x108bcf9a22d35f47%3A0xc5403e0617308d!2sYaound%C3%A9%2C%20Cameroon!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" 
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0 }} 
+                  allowFullScreen={true} 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
             </div>
 
-            {/* Form & Map Visual */}
             <div>
-              <div className="bg-slate-50 p-8 md:p-10 rounded-3xl border border-slate-200 shadow-lg mb-8">
+              <div className="bg-slate-50 p-8 md:p-10 rounded-3xl border border-slate-200 shadow-lg">
                 <h3 className="text-2xl font-bold text-deep-blue mb-6">Send Message</h3>
                 <form onSubmit={handleWhatsAppSubmit} className="space-y-6">
                   <div>
@@ -754,21 +718,11 @@ const ContactPage = () => {
                   </div>
                   <button 
                     type="submit"
-                    className="w-full bg-[#25D366] text-white font-bold py-4 rounded-lg hover:bg-[#128C7E] transition-colors shadow-lg shadow-green-200 flex items-center justify-center gap-2"
+                    className="w-full bg-[#25D366] text-white font-bold py-4 rounded-lg hover:bg-[#128C7E] transition-colors shadow-lg flex items-center justify-center gap-2"
                   >
                      Send via WhatsApp <ExternalLink size={18} />
                   </button>
                 </form>
-              </div>
-
-              {/* Map Placeholder */}
-              <div className="rounded-2xl overflow-hidden h-64 shadow-md relative group cursor-pointer">
-                 <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80" alt="Map Location" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"/>
-                 <div className="absolute inset-0 bg-deep-blue/20 group-hover:bg-deep-blue/10 transition-colors flex items-center justify-center">
-                    <div className="bg-white p-3 rounded-full shadow-lg text-accent-teal animate-bounce">
-                      <MapPin size={32} />
-                    </div>
-                 </div>
               </div>
             </div>
           </div>
@@ -784,47 +738,40 @@ const Footer = () => {
     <footer className="bg-deep-blue text-white pt-16 pb-8 border-t border-white/10">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          
-          {/* Brand */}
           <div className="text-center md:text-left">
-            <h2 className="text-2xl font-heading font-bold text-white mb-2">SKILLS MATTERS</h2>
-            <p className="text-accent-teal text-sm tracking-wider uppercase mb-4">Institute</p>
+            <div className="w-16 h-16 mb-4 mx-auto md:mx-0 rounded-lg overflow-hidden border border-white/20">
+              <img src={LOGO_URL} alt="Logo" className="w-full h-full object-cover" />
+            </div>
+            <h2 className="text-xl font-heading font-bold text-white mb-2">SKILLS MATTERS</h2>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Empowering individuals with practical skills for a better tomorrow. Excellence is our standard.
+              Empowering Cameroonian youth with practical skills for a better tomorrow.
             </p>
           </div>
 
-          {/* Quick Links */}
           <div className="text-center md:text-left">
-             <h3 className="font-bold text-lg mb-6 text-accent-teal">Quick Links</h3>
+             <h3 className="font-bold text-lg mb-6 text-accent-teal">Social Media</h3>
              <ul className="space-y-3 text-sm text-gray-400">
-               <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
-               <li><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
-               <li><Link to="/courses" className="hover:text-white transition-colors">Courses</Link></li>
-               <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+               <li><a href="https://youtube.com/@skillmattersinstitute?si=cgk3sXjFHu9Cl5UH" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors flex items-center gap-2 justify-center md:justify-start"><Youtube size={18}/> YouTube Channel</a></li>
+               <li><a href="#" className="hover:text-blue-400 transition-colors flex items-center gap-2 justify-center md:justify-start"><Facebook size={18}/> Facebook</a></li>
+               <li><a href="#" className="hover:text-pink-400 transition-colors flex items-center gap-2 justify-center md:justify-start"><Video size={18}/> TikTok</a></li>
              </ul>
           </div>
 
-          {/* Contact (Footer Version) */}
           <div className="text-center md:text-left col-span-1 md:col-span-2 lg:col-span-2">
-            <h3 className="font-bold text-lg mb-6 text-accent-teal">Contact Us</h3>
+            <h3 className="font-bold text-lg mb-6 text-accent-teal">Quick Contacts</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-               <a href="tel:+2330537110537" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
+               <div className="flex items-center gap-3 text-gray-400">
                   <Smartphone size={18} className="text-accent-teal" />
-                  <span className="text-sm">+233 (0) 537 110 537</span>
-               </a>
-               <a href="mailto:matieyendoulalle57@gmail.com" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
+                  <span className="text-sm">+237 6XX XXX XXX</span>
+               </div>
+               <div className="flex items-center gap-3 text-gray-400">
                   <Mail size={18} className="text-accent-teal" />
-                  <span className="text-sm break-all">matieyendoulalle57@gmail.com</span>
-               </a>
-               <a href="https://www.facebook.com/lalle.matieyendou.2025" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
-                  <Facebook size={18} className="text-accent-teal" />
-                  <span className="text-sm">Facebook Page</span>
-               </a>
-               <a href="https://tiktok.com/@association.moba" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
-                  <Video size={18} className="text-accent-teal" />
-                  <span className="text-sm">@association.moba</span>
-               </a>
+                  <span className="text-sm">contact@skillmatters.cm</span>
+               </div>
+               <div className="flex items-center gap-3 text-gray-400">
+                  <MapPin size={18} className="text-accent-teal" />
+                  <span className="text-sm">Yaoundé, Cameroon</span>
+               </div>
             </div>
           </div>
         </div>
