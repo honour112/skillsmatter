@@ -57,7 +57,7 @@ export const Contact = () => {
               animate={{ opacity: 1, y: 0 }}
               className="text-5xl md:text-8xl font-heading font-black text-deep-blue mb-8 leading-tight"
             >
-              Get In <span className="text-primary italic">Touch.</span>
+              {t.contact.title}
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -136,14 +136,14 @@ export const Contact = () => {
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
               
               <div className="mb-16">
-                <h2 className="text-4xl font-heading font-black text-deep-blue mb-4">Send an Inquiry</h2>
-                <p className="text-slate-500 font-bold">Our support team typically responds within 4 working hours.</p>
+                <h2 className="text-4xl font-heading font-black text-deep-blue mb-4">{t.contact.formTitle}</h2>
+                <p className="text-slate-500 font-bold">{t.contact.formSubtitle}</p>
               </div>
 
               <form onSubmit={handleFormSubmit} className="space-y-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                   <div className="space-y-4">
-                    <label className="text-[10px] font-black text-primary/40 uppercase tracking-[0.2em] ml-2">Full Name</label>
+                    <label className="text-[10px] font-black text-primary/40 uppercase tracking-[0.2em] ml-2">{t.contact.nameLabel}</label>
                     <div className="relative">
                       <User size={20} className="absolute left-6 top-1/2 -translate-y-1/2 text-primary/30" />
                       <input 
@@ -151,12 +151,12 @@ export const Contact = () => {
                         value={formData.name}
                         onChange={e => setFormData({...formData, name: e.target.value})}
                         className="w-full pl-16 pr-8 py-6 rounded-3xl bg-white border-2 border-transparent focus:border-primary focus:shadow-xl outline-none transition-all font-bold text-deep-blue text-lg" 
-                        placeholder="Kofi Mensah" 
+                        placeholder={t.contact.namePlaceholder} 
                       />
                     </div>
                   </div>
                   <div className="space-y-4">
-                    <label className="text-[10px] font-black text-primary/40 uppercase tracking-[0.2em] ml-2">Email Address</label>
+                    <label className="text-[10px] font-black text-primary/40 uppercase tracking-[0.2em] ml-2">{t.contact.emailLabel}</label>
                     <div className="relative">
                       <Mail size={20} className="absolute left-6 top-1/2 -translate-y-1/2 text-primary/30" />
                       <input 
@@ -165,14 +165,14 @@ export const Contact = () => {
                         value={formData.email}
                         onChange={e => setFormData({...formData, email: e.target.value})}
                         className="w-full pl-16 pr-8 py-6 rounded-3xl bg-white border-2 border-transparent focus:border-primary focus:shadow-xl outline-none transition-all font-bold text-deep-blue text-lg" 
-                        placeholder="example@mail.com" 
+                        placeholder={t.contact.emailPlaceholder} 
                       />
                     </div>
                   </div>
                 </div>
 
                 <div className="space-y-4">
-                  <label className="text-[10px] font-black text-primary/40 uppercase tracking-[0.2em] ml-2">Subject of Inquiry</label>
+                  <label className="text-[10px] font-black text-primary/40 uppercase tracking-[0.2em] ml-2">{t.contact.subjectLabel}</label>
                   <div className="relative">
                     <Tag size={20} className="absolute left-6 top-1/2 -translate-y-1/2 text-primary/30" />
                     <input 
@@ -180,19 +180,19 @@ export const Contact = () => {
                       value={formData.subject}
                       onChange={e => setFormData({...formData, subject: e.target.value})}
                       className="w-full pl-16 pr-8 py-6 rounded-3xl bg-white border-2 border-transparent focus:border-primary focus:shadow-xl outline-none transition-all font-bold text-deep-blue text-lg" 
-                      placeholder="Admission / Partnership / General" 
+                      placeholder={t.contact.subjectPlaceholder} 
                     />
                   </div>
                 </div>
 
                 <div className="space-y-4">
-                  <label className="text-[10px] font-black text-primary/40 uppercase tracking-[0.2em] ml-2">Your Detailed Message</label>
+                  <label className="text-[10px] font-black text-primary/40 uppercase tracking-[0.2em] ml-2">{t.contact.messageLabel}</label>
                   <textarea 
                     required 
                     value={formData.message}
                     onChange={e => setFormData({...formData, message: e.target.value})}
                     className="w-full px-8 py-8 rounded-[2.5rem] bg-white border-2 border-transparent focus:border-primary focus:shadow-xl outline-none transition-all font-bold text-deep-blue min-h-[250px] text-lg" 
-                    placeholder="Tell us how we can help you..." 
+                    placeholder={t.contact.messagePlaceholder} 
                   />
                 </div>
 
@@ -202,7 +202,7 @@ export const Contact = () => {
                   type="submit" 
                   className="w-full py-8 bg-primary text-white rounded-[2.5rem] font-black text-xl shadow-[0_20px_50px_rgba(37,99,235,0.3)] hover:bg-deep-blue transition-all flex items-center justify-center gap-4"
                 >
-                  {lang === 'en' ? 'Deliver Message' : 'Envoyer le Message'} <Send size={24} />
+                  {t.contact.sendButton} <Send size={24} />
                 </motion.button>
               </form>
             </motion.div>

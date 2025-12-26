@@ -28,23 +28,23 @@ export const Home = () => {
   });
 
   const stats = [
-    { label: "Graduates", value: "2,500+", icon: <GraduationCap size={24} />, color: "text-blue-400" },
-    { label: "Job Success", value: "98%", icon: <Briefcase size={24} />, color: "text-emerald-400" },
-    { label: "Regional Hubs", value: "2", icon: <Globe size={24} />, color: "text-amber-400" },
-    { label: "Excellence", value: "100%", icon: <Award size={24} />, color: "text-purple-400" },
+    { label: t.home.stats.graduates, value: t.home.stats.graduatesValue, icon: <GraduationCap size={24} />, color: "text-blue-400" },
+    { label: t.home.stats.jobSuccess, value: t.home.stats.jobSuccessValue, icon: <Briefcase size={24} />, color: "text-emerald-400" },
+    { label: t.home.stats.regionalHubs, value: t.home.stats.regionalHubsValue, icon: <Globe size={24} />, color: "text-amber-400" },
+    { label: t.home.stats.excellence, value: t.home.stats.excellenceValue, icon: <Award size={24} />, color: "text-purple-400" },
   ];
 
   const features = [
-    { title: "Industry Standard", desc: "Curriculum designed by experts to meet global market demands.", icon: <ShieldCheck className="text-accent" /> },
-    { title: "Hands-on Training", desc: "80% practical sessions ensuring you master the tools, not just the theory.", icon: <Zap className="text-secondary" /> },
-    { title: "Expert Mentors", desc: "Learn from veterans who have built real-world solutions.", icon: <Users className="text-primary" /> },
+    { title: t.home.features.industryStandard, desc: t.home.features.industryStandardDesc, icon: <ShieldCheck className="text-accent" /> },
+    { title: t.home.features.handsOn, desc: t.home.features.handsOnDesc, icon: <Zap className="text-secondary" /> },
+    { title: t.home.features.expertMentors, desc: t.home.features.expertMentorsDesc, icon: <Users className="text-primary" /> },
   ];
 
   const programs = [
-    { title: "Office Automation", img: IMAGES.course_office, icon: <Laptop />, desc: "Master modern business productivity tools and workflows." },
-    { title: "Secretarial Studies", img: IMAGES.hero_sub1, icon: <Settings />, desc: "Elite administrative and organizational management training." },
-    { title: "Graphic Design", img: IMAGES.course_design, icon: <PenTool />, desc: "Creative visual communication and brand design mastery." },
-    { title: "Application Dev", img: IMAGES.course_programming, icon: <Code />, desc: "Full-stack development skills for the digital economy." },
+    { title: t.home.programs.officeAutomation, img: IMAGES.course_office, icon: <Laptop />, desc: t.home.programs.officeAutomationDesc },
+    { title: t.home.programs.secretarialStudies, img: IMAGES.hero_sub1, icon: <Settings />, desc: t.home.programs.secretarialStudiesDesc },
+    { title: t.home.programs.graphicDesign, img: IMAGES.course_design, icon: <PenTool />, desc: t.home.programs.graphicDesignDesc },
+    { title: t.home.programs.applicationDev, img: IMAGES.course_programming, icon: <Code />, desc: t.home.programs.applicationDevDesc },
   ];
 
   const showcaseItems = [
@@ -71,13 +71,12 @@ export const Home = () => {
             </motion.div>
             
             <motion.h1 variants={fadeIn} className="text-5xl md:text-7xl lg:text-[6.5rem] font-heading font-black text-deep-blue leading-[1] mb-8">
-              Excellence <br /> 
-              <span className="text-primary italic font-light">Without</span> <br /> 
-              Compromise.
+              {t.hero.title1} <br />
+              <span className="text-primary italic font-light">{t.hero.title2}</span> <br />
+              {t.hero.title3}
             </motion.h1>
-            
             <motion.p variants={fadeIn} className="text-xl lg:text-2xl text-slate-500 mb-10 max-w-xl lg:mx-0 mx-auto leading-relaxed">
-              Transforming passion into professional prowess. Join West Africa's most prestigious hub for practical technical education.
+              {t.hero.subtitle}
             </motion.p>
             
             <motion.div variants={fadeIn} className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
@@ -107,7 +106,7 @@ export const Home = () => {
                   </div>
                   <div>
                     <div className="font-black text-xs uppercase tracking-widest text-deep-blue">{f.title}</div>
-                    <div className="text-[10px] text-slate-400 font-bold">{f.desc.split(' ').slice(0,3).join(' ')}...</div>
+                    <div className="text-[10px] text-slate-400 font-bold">{f.desc}</div>
                   </div>
                 </div>
               ))}
@@ -136,11 +135,11 @@ export const Home = () => {
                   <Star fill="currentColor" size={24} />
                 </div>
                 <div>
-                  <div className="font-black text-deep-blue text-sm uppercase">Certified</div>
-                  <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">ISO 9001:2015</div>
+                  <div className="font-black text-deep-blue text-sm uppercase">{t.home.certified}</div>
+                  <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{t.home.iso}</div>
                 </div>
               </div>
-              <p className="text-xs text-slate-500 font-medium">Recognized technical excellence across West Africa.</p>
+              <p className="text-xs text-slate-500 font-medium">{t.home.certifiedDesc}</p>
             </motion.div>
 
             <motion.div 
@@ -205,15 +204,15 @@ export const Home = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 className="text-secondary font-black tracking-[0.4em] uppercase text-sm mb-6 block"
               >
-                Premier Training
+                {t.home.premierTraining}
               </motion.span>
               <motion.h2 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 className="text-5xl md:text-8xl font-heading font-black text-deep-blue leading-[0.9]"
               >
-                Where Skills <br />
-                Become <span className="text-primary italic">Careers.</span>
+                {t.home.whereSkills} <br />
+                {t.home.become} <span className="text-primary italic">{t.home.careers}</span>
               </motion.h2>
             </div>
             <Link to="/courses">
@@ -221,7 +220,7 @@ export const Home = () => {
                 whileHover={{ scale: 1.05 }}
                 className="flex items-center gap-4 group cursor-pointer"
               >
-                <span className="font-black text-primary text-xl uppercase tracking-widest group-hover:text-secondary transition-colors">View All Courses</span>
+                <span className="font-black text-primary text-xl uppercase tracking-widest group-hover:text-secondary transition-colors">{t.home.viewAllCourses}</span>
                 <div className="w-20 h-20 rounded-full border-4 border-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all transform group-hover:translate-x-2">
                   <ArrowRight size={32} />
                 </div>
@@ -250,7 +249,7 @@ export const Home = () => {
                 <h3 className="text-3xl font-black text-deep-blue mb-4 leading-tight group-hover:text-primary transition-colors">{p.title}</h3>
                 <p className="text-slate-500 mb-8 font-medium leading-relaxed">{p.desc}</p>
                 <div className="flex items-center gap-2 text-accent font-black text-xs uppercase tracking-widest">
-                  <CheckCircle size={16} /> Hands-on Module
+                  <CheckCircle size={16} /> {t.home.handsOnModule}
                 </div>
               </motion.div>
             ))}
@@ -263,9 +262,9 @@ export const Home = () => {
         <div className="container mx-auto px-6">
           <div className="text-center mb-24">
             <h2 className="text-5xl md:text-7xl font-heading font-black text-deep-blue mb-8">
-              Creative <span className="text-primary italic">Showcase</span>
+              {t.home.showcaseTitle1} <span className="text-primary italic">{t.home.showcaseTitle2}</span>
             </h2>
-            <p className="text-xl text-slate-500 max-w-2xl mx-auto">Witness the caliber of work produced by our elite graphic design and printing technology students.</p>
+            <p className="text-xl text-slate-500 max-w-2xl mx-auto">{t.home.showcaseSubtitle}</p>
           </div>
           
           <div className="relative">
@@ -301,7 +300,7 @@ export const Home = () => {
                 transition={{ delay: i * 0.05 }}
                 className="aspect-square rounded-[2.5rem] overflow-hidden border-8 border-white shadow-xl hover:rotate-2 transition-transform cursor-pointer"
                >
-                 <img src={img} className="w-full h-full object-cover" alt="Print Sample" />
+                <img src={img} className="w-full h-full object-cover" alt={t.home.printSampleAlt} />
                </motion.div>
              ))}
           </div>
@@ -319,8 +318,8 @@ export const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 className="text-5xl md:text-8xl font-heading font-black text-white mb-10 leading-tight"
               >
-                Ready to Join <br />
-                The <span className="text-secondary italic">Elite?</span>
+                {t.home.readyToJoin} <br />
+                {t.home.the} <span className="text-secondary italic">{t.home.elite}</span>
               </motion.h2>
               <div className="max-w-4xl mx-auto mb-16 rounded-[3rem] overflow-hidden shadow-2xl border-[15px] border-white/10">
                 <img src={IMAGES.home_flier} className="w-full h-auto object-cover" alt="Enrollment Flier" />
@@ -331,7 +330,7 @@ export const Home = () => {
                 onClick={openRegistration} 
                 className="px-16 py-8 bg-secondary text-primary rounded-[3rem] font-black text-2xl shadow-2xl hover:bg-white hover:text-deep-blue transition-all flex items-center justify-center gap-4 mx-auto"
               >
-                Enroll Today <CheckCircle size={32} />
+                {t.home.enrollToday} <CheckCircle size={32} />
               </motion.button>
             </div>
           </div>

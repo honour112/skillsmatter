@@ -48,7 +48,7 @@ export const Courses = () => {
     window.open(`https://wa.me/${WHATSAPP_NUMBER_GHANA}?text=${message}`, '_blank');
   };
 
-  return (
+    return (
     <section className="pt-40 pb-32 bg-white min-h-screen">
       <div className="container mx-auto px-6">
         <motion.div 
@@ -63,11 +63,11 @@ export const Courses = () => {
           >
             <Zap size={32} />
           </motion.div>
-          <h2 className="text-5xl md:text-8xl font-heading font-black text-deep-blue mb-8 leading-none">
-            {t.courses.title}
-          </h2>
+              <h2 className="text-5xl md:text-8xl font-heading font-black text-deep-blue mb-8 leading-none">
+                {t.courses.title}
+              </h2>
           <p className="text-xl md:text-2xl text-slate-500 max-w-2xl mx-auto mb-16 leading-relaxed">
-            {t.courses.subtitle}
+                {t.courses.subtitle}
           </p>
           <motion.button 
             whileHover={{ scale: 1.05, boxShadow: "0 20px 50px rgba(37, 99, 235, 0.25)" }}
@@ -142,7 +142,7 @@ export const Courses = () => {
         {/* --- DEDICATED GRAPHIC DESIGN SHOWCASE --- */}
         <div className="py-24 border-t border-slate-100">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-heading font-black text-deep-blue mb-4">{t.courses.showcase}</h2>
+                <h2 className="text-4xl md:text-6xl font-heading font-black text-deep-blue mb-4">{t.courses.showcase}</h2>
             <p className="text-lg text-slate-500 max-w-2xl mx-auto">{t.courses.showcaseSubtitle}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
