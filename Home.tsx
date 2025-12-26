@@ -154,6 +154,18 @@ export const Home = () => {
         </div>
       </section>
 
+      {/* --- BEAUTIFUL IMAGE SECTION (after hero) --- */}
+      <section className="w-full flex justify-center items-center py-10 bg-gradient-to-b from-white to-bg-light">
+        <div className="max-w-4xl w-full px-4">
+          <img
+            src="https://i.postimg.cc/6q9Lvjv7/IMG_20251224_WA0035.jpg"
+            alt="Skill Matters Institute Showcase"
+            className="rounded-3xl shadow-2xl border-8 border-white w-full object-cover object-center transition-transform duration-700 hover:scale-105"
+            style={{ minHeight: 280, maxHeight: 420 }}
+          />
+        </div>
+      </section>
+
       {/* --- TRUST & STATS STRIP --- */}
       <section className="bg-deep-blue py-16 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
