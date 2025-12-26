@@ -3,25 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Skills Matters Institute</title>
+    <title>Skill Matters Institute</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-              'deep-blue': '#0a1128', // Rich Black (Used for Text/Footer now)
-              'deep-blue-light': '#001f54', // Oxford Blue
-              'accent-teal': '#1282a2', // Cerulean
-              'accent-teal-light': '#3da9c7',
-              'accent-teal-dark': '#034078', // Indigo Dye
-              'bg-light': '#f8fafc', // Slate 50
-              'bg-white': '#ffffff',
+              'primary': '#2563EB', // Vibrant Royal Blue
+              'secondary': '#FACC15', // Brighter Gold
+              'accent': '#10B981', // Brighter Emerald
+              'deep-blue': '#1E3A8A', // Deep Royal Blue
+              'bg-light': '#F0F7FF', // Very light blue tint
+              'bg-white': '#FFFFFF',
             },
             fontFamily: {
-              sans: ['"Open Sans"', 'sans-serif'],
-              heading: ['"Abril Fatface"', 'cursive'],
+              sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+              heading: ['"Playfair Display"', 'serif'],
             }
           }
         }
@@ -29,10 +28,11 @@
     </script>
     <style>
       body {
-        background-color: #f8fafc;
-        color: #334155;
+        background-color: #F0F7FF;
+        color: #1e293b;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        overflow-x: hidden;
       }
-      /* Custom scrollbar */
       ::-webkit-scrollbar {
         width: 8px;
       }
@@ -40,11 +40,17 @@
         background: #f1f5f9;
       }
       ::-webkit-scrollbar-thumb {
-        background: #cbd5e1;
+        background: #2563EB;
         border-radius: 4px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #1282a2;
+        background: #1D4ED8;
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.4);
       }
     </style>
   <script type="importmap">
