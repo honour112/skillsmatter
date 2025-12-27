@@ -60,6 +60,17 @@ export const translations = {
     contact: {
       title: 'Contact Us',
       subtitle: 'Have a question or ready to start? Reach out to our regional offices today.',
+      formTitle: 'Send an Inquiry',
+      formSubtitle: 'Our support team typically responds within 4 working hours.',
+      nameLabel: 'Full Name',
+      namePlaceholder: 'e.g. Kofi Mensah',
+      emailLabel: 'Email Address',
+      emailPlaceholder: 'e.g. example@mail.com',
+      subjectLabel: 'Subject of Inquiry',
+      subjectPlaceholder: 'Admission / Partnership / General',
+      messageLabel: 'Your Detailed Message',
+      messagePlaceholder: 'Tell us how we can help you...',
+      sendButton: 'Deliver Message',
       ghanaOffice: 'Ghana Office',
       togoOffice: 'Togo Office',
       locationGhana: 'Wassa Akropong, Ghana',
@@ -73,6 +84,19 @@ export const translations = {
     footer: {
       tagline: 'Empowering youth with world-class practical skills.',
       follow: 'Follow Us'
+    }
+    ,
+    certificates: {
+      title: 'Earn Your Credentials',
+      excellence: 'Recognized Excellence',
+      description: 'Skill Matters Institute provides certificates that are recognized across the region. Our practical approach ensures that every student who holds our certification has the hands-on skills required by modern industry.',
+      bullets: [
+        'Industry Verified',
+        'Practical Mastery',
+        'Regional Recognition'
+      ],
+      certificateAlt: 'Certificate',
+      officialSample: 'Official Sample'
     }
   },
   fr: {
@@ -133,6 +157,17 @@ export const translations = {
     contact: {
       title: 'Contactez-nous',
       subtitle: 'Une question ou prêt à commencer ? Contactez nos bureaux régionaux.',
+      formTitle: 'Envoyer une Demande',
+      formSubtitle: 'Notre équipe répond généralement sous 4 heures ouvrables.',
+      nameLabel: 'Nom Complet',
+      namePlaceholder: 'ex: Kofi Mensah',
+      emailLabel: 'Adresse Email',
+      emailPlaceholder: 'ex: exemple@mail.com',
+      subjectLabel: 'Sujet de la Demande',
+      subjectPlaceholder: 'Admission / Partenariat / Général',
+      messageLabel: 'Votre Message Détaillé',
+      messagePlaceholder: 'Dites-nous comment nous pouvons vous aider...',
+      sendButton: 'Envoyer le Message',
       ghanaOffice: 'Bureau du Ghana',
       togoOffice: 'Bureau du Togo',
       locationGhana: 'Wassa Akropong, Ghana',
@@ -146,6 +181,19 @@ export const translations = {
     footer: {
       tagline: 'Autonomiser la jeunesse avec des compétences pratiques.',
       follow: 'Suivez-nous'
+    }
+    ,
+    certificates: {
+      title: 'Obtenez vos Titres',
+      excellence: 'Excellence Reconnue',
+      description: "L'Institut Skill Matters délivre des certificats reconnus dans toute la région. Notre approche pratique garantit que chaque étudiant certifié possède les compétences concrètes exigées par l'industrie moderne.",
+      bullets: [
+        'Certifié par l’Industrie',
+        'Maîtrise Pratique',
+        'Reconnaissance Régionale'
+      ],
+      certificateAlt: 'Certificat',
+      officialSample: 'Exemple Officiel'
     }
   }
 };
